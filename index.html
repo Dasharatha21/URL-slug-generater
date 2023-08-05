@@ -1,0 +1,137 @@
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="manifest" href="https://slugify.online/manifest.json">
+<link href="css/slugify.online-A.theme,,_css,,_bootstrap.css+theme,,_css,,_theme.css+css,,_style.css,,qv==4,Mcc.uchf9FL1Yn.css.pagespeed.cf.XJva7Np3NK.css" rel="stylesheet" type="text/css" media="all">
+
+</head>
+<body>
+<select id="language_select">
+  <option value="english">English</option>
+  <option value="hindi">Hindi</option>
+  <!-- Add more language options here if needed -->
+</select>
+<!-- Include transliteration library -->
+<script src="https://unpkg.com/transliteration/dist/browser/transliteration.umd.js"></script>
+<!-- Include lodash library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+<script>
+document.getElementById('calculate_btn').addEventListener('click', function() {
+  const inputText = document.getElementById('input_text').value;
+  const selectedLanguage = document.getElementById('language_select').value;
+  const separator = document.querySelector('input[name="separator"]:checked').value;
+
+  let slug = inputText.trim().toLowerCase();
+
+  if (selectedLanguage === 'hindi') {
+    // Use transliteration to convert Hindi to English
+    slug = transliteration.transliterate(slug, { unknown: '?' });
+  }
+
+  // Replace spaces with the selected separator
+  slug = slug.replace(/\s+/g, separator);
+
+  document.getElementById('output_hash').innerText = slug;
+  document.getElementById('output_block').classList.remove('invisible');
+});
+
+// Rest of the code remains the same
+</script>
+####
+<section class="bg--secondary space--xs">
+<div class="container">
+<div class="row justify-content-between">
+<div class="col-md-12">
+<div class="boxed boxed--border orial title or any web page title)
+</label>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<input type="text" id="input_text" class="form-control-lg mb-3" autofocus>
+<div class="invalid-feedback"></div>
+</div>
+</div>
+<div class="row mt-1">
+<div class="col-lg-3 col-md-5">
+<div class="input-radio input-radio--innerlabel btn-block btn-sm">
+<input id="separate_with_dash" type="radio" name="separator" value="dash">
+<label for="separate_with_dash" style="font-weight: bold;">Separate with dash (-)</label>
+</div>
+</div>
+<div class="col-lg-3 col-md-5 offset-lg-0 offset-md-1">
+<div class="input-radio input-radio--innerlabel btn-block btn-sm">
+<input id="separate_with_underscore" type="radio" name="separator" value="underscore">
+<label for="separate_with_underscore" style="font-weight: bold;">Separate with underscore (_)</label>
+</div>
+</div>
+<div class="col-lg-3 col-md-4 col-sm-12">
+<div class="input-checkbox">
+<input id="remove_stop_words" type="checkbox" name="remove_stop_words" aria-labelledby="remove_stop_words_label" aria-label="Remove stop words">
+<label for="remove_stop_words"></label>
+</div>
+<span class="checkbox-true-label" id="remove_stop_words_label">Remove stop words</span>
+</div>
+<div class="col-lg-3 col-md-4 col-sm-12">
+<div class="input-checkbox">
+<input id="remove_numbers" type="checkbox" name="remove_numbers" aria-labelledby="remove_numbers_label" aria-label="Remove numbers">
+<label for="remove_numbers"></label>
+</div>
+<span class="checkbox-true-label" id="remove_numbers_label">Remove numbers</span>
+</div>
+</div>
+<div class="row mt-5">
+<div class="col-md-8 col-sm-12">
+<a class="btn btn-block btn--lg btn--primary-2 type--uppercase" id="calculate_btn" role="button" title="Click to slugify input string and generate URL slug" href="slugify.html">
+<span class="btn__text">Slugify (Generate Slug)</span>
+</a>
+</div>
+<div class="col-md-2 col-sm-12">
+<a class="btn btn-block btn--lg type--uppercase" id="clear_btn" role="button" title="Clear input &amp; output to try another string" href="slugify.html">
+<span class="btn__text">Clear</span>
+</a>
+</div>
+<div class="col-md-2 col-sm-12">
+<a class="btn btn-block btn--lg type--uppercase" id="reset_controls_btn" role="button" title="Reset form to its initial state" href="slugify.html">
+<span class="btn__text">Reset</span>
+</a>
+</div>
+</div>
+</form>
+</div>
+<div class="boxed boxed--border boxed--sm mb-md-0">
+<div class="row">
+<div class="col">
+<span class="mb-3 h4">OUTPUT: (Clean URL slug)</span>
+</div>
+</div>
+<div class="row invisible" id="output_block">
+<div class="col mb-4">
+<span class="h3 mb-1" id="output_hash" data-toggle="tooltip" title="Copied"></span>
+</div>
+</div>
+<div class="row">
+<div class="col">
+<a class="btn btn-block type--uppercase" id="copy_btn" data-clipboard-target="#output_hash" title="Copy the slug to the clipboard" role="button" href="slugify.html">
+ <span class="btn__text">
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="copy" class="svg-inline--fa fa-copy fa-w-14" role="img" viewbox="0 0 448 512"><path fill="currentColor" d="M320 448v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V120c0-13.255 10.745-24 24-24h72v296c0 30.879 25.121 56 56 56h168zm0-344V0H152c-13.255 0-24 10.745-24 24v368c0 13.255 10.745 24 24 24h272c13.255 0 24-10.745 24-24V128H344c-13.2 0-24-10.8-24-24zm120.971-31.029L375.029 7.029A24 24 0 0 0 358.059 0H352v96h96v-6.059a24 24 0 0 0-7.029-16.97z"></path></svg>
+Copy
+</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<script>var _0xe3ee=['length','console','log','debug','warn','info','error'];(function(_0xea0668,_0x58d37f){var _0x168765=function(_0x1d4869){while(--_0x1d4869){_0xea0668['push'](_0xea0668['shift']());}};_0x168765(++_0x58d37f);}(_0xe3ee,0x119));var _0x1ace=function(_0xe57052,_0x2f6afa){_0xe57052=_0xe57052-0x0;var _0x206867=_0xe3ee[_0xe57052];return _0x206867;};var DEBUG=![];if(!DEBUG){if(!window['console'])window[_0x1ace('0x0')]={};var methods=[_0x1ace('0x1'),_0x1ace('0x2'),_0x1ace('0x3'),_0x1ace('0x4'),_0x1ace('0x5')];for(var i=0x0;i<methods[_0x1ace('0x6')];i++){console[methods[i]]=function(){};}}</script>
+<script src="js/js-jquery-3.5.1.slim.min.js.pagespeed.jm.r7xzr_ze4T.js"></script>
+<script src="js/js-bootstrap-4.6.0.bundle.min.js.pagespeed.jm.XDm2rfGJKK.js"></script>
+<script src="js/js-scripts.js.pagespeed.jm.kxjJG-9Kpe.js"></script>
+<script src="js/2.0.0-clipboard.min.js" defer></script>
+<script src="js/js-lib,_slugify.js+script.js,qv==4+common-functions.js.pagespeed.jc.cPFMiD40wQ.js"></script><script>eval(mod_pagespeed_3rCCBBqKVS);</script>
+<script>eval(mod_pagespeed_Dj9FWU7Yd$);</script>
+<script>eval(mod_pagespeed_Zo0oQm1wUq);</script>
+</body>
+</html>
